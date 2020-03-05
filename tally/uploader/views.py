@@ -23,9 +23,9 @@ def upload_file_to_s3(request):
 
 			result 			= uploadFileToS3( settings.MEDIA_ROOT + filename )
 			file_url 		= result[ 'data' ][ 'fileURL' ]
-			uploaded_file 	= UploadedFile( file_name = fileToUpload.name , file_url = file_url )
+			# uploaded_file 	= UploadedFile( file_name = fileToUpload.name , file_url = file_url )
 
-			uploaded_file.save()
+			# uploaded_file.save()
 			print( 'done' )
 			os.remove( settings.MEDIA_ROOT + filename )
 			
