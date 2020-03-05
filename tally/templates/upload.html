@@ -1,19 +1,36 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>File Uploader</title>
-</head>
+{% include "header.html" %}
+
 <body>
-	<h1>File Uploader Index Page</h1>
-	<form action="{% url 'file_upload' %}" method = 'POST' enctype="multipart/form-data">
-		    {% csrf_token %}
-    <input type="file" name="fileToUpload">
-    <input type="submit" value="Submit">
-</form>
+	
+	<div class = "container">
+		
+
+	<div class="wrapper fadeInDown">
+	  <div id="formContent">
+
+		<form  action="{% url 'file_upload' %}" method = 'POST' enctype="multipart/form-data">
+
+
+
+				    {% csrf_token %}
+		 	<div class ="form-group">
+		 		<label for="fileUpload">Upload File to S3</label>	
+		    	<input id="fileUpload" class ="form-control-file"type="file" name="fileToUpload">
+		    </div>
+
+		   	<div class="form-group">
+
+		    	<input class="btn btn-success"type="submit" value="Upload">
+
+		    </div>
+		</form>
+		</div>
+	</div>
+	</div>
 <br>
 <br>
 <br>
-<h1>Files Downloader:</h1>
+<!-- <h4>Uploaded files</h4>
 <table border='5'>
 	<thead>
 	<th>Name</th>
@@ -35,6 +52,6 @@
 	<option value="revenue">revenue</option>
 	<option value="service">service</option>
 </select>
-<a href="/download" >Download</a>
-</body>
-</html>
+<a href="/download" >Download --></a>
+
+{% include "footer.html" %}

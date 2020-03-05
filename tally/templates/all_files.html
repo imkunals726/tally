@@ -1,0 +1,19 @@
+{% include "header.html" %}
+
+<table border='5'>
+	<thead>
+	<th>Name</th>
+	<th>Action</th>
+	</thead>
+	<tbody>
+		{% for row in files %}
+		<tr>
+			<td>{{row.file_name}}</td>
+			<td><a href="{{row.file_url}}">Download</a></td>
+		</tr>
+		{%endfor%}
+	</tbody>
+</table>
+
+
+{% include "footer.html" %}
