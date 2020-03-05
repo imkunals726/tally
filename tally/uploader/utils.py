@@ -5,16 +5,16 @@ import uuid
 from datetime import datetime, timedelta
 import requests, json, ast, sys, os
 from django.core import serializers
-
+import os
 
 import re
 
 
 
-AWS_ACCESS_KEY_ID       = "AKIAIT7XRXKXPTGHUPWA"
-AWS_SECRET_ACCESS_KEY   = "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"
-BUCKET_NAME             = "ritesh"
-AWS_HOST                = "ritesh.s3.ap-south-1.amazonaws.com"#http://ritesh.s3-website.ap-south-1.amazonaws.com
+AWS_ACCESS_KEY_ID       = os.environ[ 'AWS_ACCESS_KEY' ]
+AWS_SECRET_ACCESS_KEY   = os.environ[ 'AWS_SECRET_ACCESS_KEY' ]
+BUCKET_NAME             = os.environ[ 'BUCKET_NAME' ]
+AWS_HOST                = "{}.s3.ap-south-1.amazonaws.com".format( BUCKET_NAME )
 
 
 def uploadFileToS3( fileName, brand = 'ALL' , report = 'cost' , LANG = 'en-US', objectACL='public-read'):
